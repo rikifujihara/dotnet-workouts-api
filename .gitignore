@@ -1,0 +1,23 @@
+# .NET Core and Visual Studio
+.vscode/
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.log
+
+# Build results
+/build/
+*.dll
+*.exe
+
+# NuGet packages
+*.nupkg
+/packages/
+project.lock.json
+
+# Env 
+appsettings.json
+
+# Misc
