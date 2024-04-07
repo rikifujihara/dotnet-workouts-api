@@ -27,5 +27,20 @@ public class MongoDBService
         return;
     }
 
+    public async Task DeleteAsync(string id)
+    {
+        FilterDefinition<Workout> filter = Builders<Workout>.Filter.Eq("Id", id);
+        await _workoutsCollection.DeleteOneAsync(filter);
+        return;
+    }
 
+    public async Task ReplaceAsync(string id, Workout workout)
+    {
+        // Filter to find the workout with matching id
+        FilterDefinition<Workout> filter = Builders<Workout>.Filter.Eq("Id", id);
+
+        // Replace the matching workout with the new workout
+        await _workoutsCollection.ReplaceOneAsync(filter, workout);
+        return;
+    }
 }
