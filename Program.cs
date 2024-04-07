@@ -14,6 +14,16 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 
+app.UseCors(builder =>
+{
+    builder.WithOrigins(
+        "http://localhost:3000" // Local Next.js app
+    )
+    .AllowAnyMethod()
+    .AllowAnyHeader();
+});
+
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

@@ -19,4 +19,7 @@ public class Workout
 
     [Required]
     public int Load { get; set; }
+
+    [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
+    public DateTime Timestamp { get; set; } = DateTime.UtcNow;
 }

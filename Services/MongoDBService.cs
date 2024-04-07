@@ -18,7 +18,8 @@ public class MongoDBService
 
     public async Task<List<Workout>> GetAsync()
     {
-        return await _workoutsCollection.Find(new BsonDocument()).ToListAsync();
+        var sort = Builders<Workout>.Sort.Descending(w => w.Timestamp);
+        return await _workoutsCollection.Find(new BsonDocument()).Sort(sort).ToListAsync();
     }
 
     public async Task CreateAsync(Workout workout)
