@@ -11,15 +11,12 @@ public class Workout
     [BsonRepresentation(BsonType.ObjectId)]
     public string? Id { get; set; }
 
-    [Required]
     public string? Title { get; set; }
 
-    [Required]
     public int Reps { get; set; }
 
-    [Required]
     public int Load { get; set; }
 
     [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
-    public DateTime Timestamp { get; set; } = DateTime.UtcNow;
+    public DateTime? Timestamp { get; set; } = DateTime.UtcNow!;
 }

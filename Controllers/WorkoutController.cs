@@ -8,14 +8,9 @@ namespace workoutsbackend.Controllers;
 
 [Controller]
 [Microsoft.AspNetCore.Mvc.Route("api/[controller]")]
-public class WorkoutController : Controller
+public class WorkoutController(MongoDBService mongoDBService) : Controller
 {
-    private readonly MongoDBService _mongoDBService;
-
-    public WorkoutController(MongoDBService mongoDBService)
-    {
-        _mongoDBService = mongoDBService;
-    }
+    private readonly MongoDBService _mongoDBService = mongoDBService;
 
     [HttpGet]
     public async Task<List<Workout>> Get()
